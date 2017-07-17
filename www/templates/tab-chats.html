@@ -1,0 +1,37 @@
+<ion-view view-title="Chats">
+
+    <div class="bar bar-header item-input-inset">
+      <label class="item-input-wrapper">
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input type="search" placeholder="请输入搜索词" ng-keyup="myKeyup($event)" ng-model="searchInputText">
+      </label>
+    </div>
+    <div class="row" style="height:50px;text-align: center;">
+      <div class="col-50" ng-click="showc()" ng-style="kcolor">课程列表<i class="icon ion-ios-arrow-down"></i></div>
+      <div class="col-50"  ng-click="showp()" ng-style="pcolor">价格<i class="icon ion-ios-arrow-down"></i></div>
+    </div>
+  <ion-content style="margin-top: 94px;">
+    <div class="courselist" style="height: auto;width: 100%;" ng-show="clist">
+      <ul class="kc">
+        <li ng-repeat="obj in courseListBtns" ng-click="courseSerch('','{{obj.sysId}}','')">{{obj.title}}</li>
+      </ul>
+    </div>
+    <div class="pricelist" ng-show="plist">
+      <ul>
+        <li ng-repeat="obj in priceBtns" ng-click="courseSerch('','','{{obj.id}}')">{{obj.btnName}}</li>
+      </ul>
+    </div>
+    <div class="list">
+      <a class="item item-thumbnail-left" ng-repeat="temp in lists" href="#/tab/homedetail/{{temp.ID}}" style="border: none;border-top: 1px solid #9e9e9e;">
+
+        <img ng-src="{{temp.Cpic}}">
+        <h2>{{temp.Cname}}</h2>
+        <p>{{temp.Cdescribe}}</p>
+        <p>{{temp.Cprice}}</p>
+      </a>
+      <ion-infinite-scroll on-infinite="loadMore()"  ng-if="moredata" immediate-check="false">
+
+      </ion-infinite-scroll>
+    </div>
+  </ion-content>
+</ion-view>

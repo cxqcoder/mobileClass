@@ -1,0 +1,91 @@
+<ion-view>
+  <style>
+    .box {
+      width: 100%;
+      height: 8.65rem;
+    }
+    .box img {
+      width: 100%;
+      height: auto;
+    }
+    .card {
+      border: none;
+      box-shadow: none;
+    }
+  </style>
+  <ion-content class="padding">
+    <!--头部搜索 -->
+    <div class="list">
+      <div class="item-input-inset">
+        <div class="tx" style="width: 2rem;height: 2rem;margin-right: 0.3rem">
+          <img style="height: 100%;width: 100%" src="img/person_touxiang.png"/>
+        </div>
+        <label class="item-input-wrapper">
+          <input type="text" placeholder="Search" ng-model="homeSearch.searchText">
+        </label>
+        <button class="button button-small" ng-click="tzSearch()">
+          <i class="icon ion-search"></i>
+        </button>
+      </div>
+    </div>
+    <!--轮播-->
+    <ion-slide-box auto-play="true" does-continue="true" slide-interval="2000" delegate-handle="slideimgs">
+      <ion-slide ng-repeat="temp in lunbodata">
+        <div class="box"><img src="{{temp.Cpic}}"></div>
+      </ion-slide>
+    </ion-slide-box>
+    <!--好评榜 -->
+    <div class="list card" style="border: none;">
+
+      <div class="item">
+        <h2>好评榜</h2>
+      </div>
+      <div class="row" ng-repeat="obj in haopingbang" style="margin-top: 13px">
+        <div class="col col-50" ng-repeat="temp in obj">
+          <a href="#/tab/homedetail/{{temp.ID}}">
+            <div class="item item-image">
+              <img class="fullimg" src=" {{temp.Cpic}}">
+              <p>{{temp.Cname}}</p>
+              <p>{{temp.Cdescribe}}</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!--最新课程-->
+    <div class="list card">
+
+      <div class="item">
+        <p style="float: right"><a href="#/templates/booklist">更多</a>
+          <i class="icon ion-ios-arrow-right"></i>
+        </p>
+        <h2>最新课程</h2>
+      </div>
+      <div class="row" ng-repeat="obj in newlist">
+        <div class="col col-50" ng-repeat="temp in obj">
+          <div class="item item-image">
+            <a href="#/tab/homedetail/{{temp.ID}}">
+            <img src="{{temp.Cpic}}">
+            <p>{{temp.Cname}}</p>
+            <p>{{temp.Cdescribe}}</p>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!--猜你喜欢 -->
+    <div class="list">
+      <div class="item" style="border: none;border-top: 1px solid #9e9e9e;">
+        <h2>猜你喜欢</h2>
+      </div>
+      <a class="item item-thumbnail-left"  ng-repeat="temp in likelist" href="#/tab/homedetail/{{temp.ID}}" style="border: none;border-top: 1px solid #9e9e9e;">
+        <img src="{{temp.Cpic}}">
+        <h2>{{temp.Cname}}</h2>
+        <p>{{temp.Cdescribe}}</p>
+
+      </a>
+    </div>
+  </ion-content>
+</ion-view>

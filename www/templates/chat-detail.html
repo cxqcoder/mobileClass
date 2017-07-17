@@ -1,0 +1,63 @@
+<ion-view  hide-tabs="true">
+  <div class="bar">
+    <span class="dj" style="left: 5px;"><a class="icon ion-chevron-left" href="#/tab/dash"></a>返回</span>
+    <h1 class="title">我的课程</h1>
+  </div>
+  <div style="margin-top:48px;text-align: center;position: relative">
+    <video controls loop ng-src="{{url}}" height="auto" width="100%"></video>
+    <div class="vmask" ng-show="isshow||isbbuy">
+      <a href="#/tab/login" ng-show="!islogin">请先登录</a>
+      <a href="#" ng-show="isbbuy">请在下方购买后观看</a>
+    </div>
+  </div>
+
+  <div class="row" style="height:50px;text-align: center;background:#CCCCCC ">
+    <div class="col-50" ng-click="qiekc()" ng-style="scolor" style="border-right: 1px solid #ffffff">目录<i class="icon ion-ios-arrow-down"></i></div>
+    <div class="col-50"  ng-click="qiepj()" ng-style="xcolor">详情<i class="icon ion-ios-arrow-down"></i></div>
+  </div>
+  <ion-content class="padding" style="margin-top: 293px">
+    <ion-list ng-show="sdata" ng-repeat="obj in studydata">
+      <h4>{{obj.CDname}}</h4>
+      <ion-item ng-repeat="temp in obj.Vlist" item="item" ng-click="djsp('{{temp.ID}}')" style="border:0" ng-style="studycolor">
+        <div class="line"></div>
+        <img src="img/study_circle.png">
+        <h2 class="stutile" style="  margin-left: 20px;">{{temp.Vname}}</h2>
+        <p class="stime">{{temp.Vtime}}</p>
+      </ion-item>
+    </ion-list>
+    <ion-list ng-show="xdata" >
+      <h4>课程评价</h4>
+      <ion-item ng-repeat="temp in pingjia" item="item" href="#"  class="item item-avatar">
+          <img src="img/study_tx.jpg">
+          <h2><span>{{temp.UserId}}</span><span style="float: right;">{{temp.createAt}}</span></h2>
+          <p>{{temp.evaluate}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  <div class="tabs tabs-icon-top">
+    <a class="tab-item"  ng-click="estimate()">
+      <i class="icon ion-edit"></i>评价
+    </a>
+    <a class="tab-item" ng-click="collect()" ng-class="{true: 'active', false: 'inactive'}[issActive]">
+      <i class="icon ion-ios-star-outline" ></i>{{sc}}
+    </a>
+    <a class="tab-item"  ng-click="buycourse()" ng-class="{true: 'active', false: 'inactive'}[isgActive]">
+      <i class="icon ion-ios-download-outline"></i>{{gm}}
+    </a>
+  </div>
+  <script id="model.html" type="text/ng-template" >
+    <ion-modal-view>
+      <ion-header-bar class="bar-positive">
+        <h1 class="title">写评论</h1>
+        <button class="button" ng-click="modal.hide()">
+         关闭
+        </button>
+      </ion-header-bar>
+      <ion-content style="text-align: center">
+        <textarea cols="46" rows="10" placeholder="吐槽、表扬、鼓励。。。想说啥就说啥" style="border: 1px solid #cccccc" ng-model="pingjia.evaluates"></textarea>
+        <button class="button button-positive" style="width: 120px;font-size:16px;height: 45px" ng-click="finishe(pingjia)">提交</button>
+      </ion-content>
+    </ion-modal-view>
+  </script>
+
+</ion-view>

@@ -1,0 +1,38 @@
+<ion-view view-title="Account">
+<div class="pbg">
+  <div class="kuang">
+    <img src="img/person_03.png"  class="l">
+    <img src="img/person_touxiang.png" class="i">
+    <img src="img/person_04.png" class="r">
+    <span>{{perlist.nickname}}</span>
+  </div>
+</div>
+  <ion-content style="margin-top: 70%;text-align: center">
+    <div class="list">
+      <a class="item item-icon-left" href="#">
+        <i class="icon ion-ios-person-outline"></i>
+        <span class="item-note">
+           {{perlist.nickname}}
+        </span>
+
+      </a>
+
+      <a class="item item-icon-left" href="#">
+        <i class="icon ion-ios-email-outline"></i>
+
+        <span class="item-note">
+            {{perlist.email}}
+        </span>
+      </a>
+
+      <a class="item item-icon-left" href="#">
+        <i class="icon ion-ios-telephone-outline"></i>
+
+        <span class="item-note">
+           {{perlist.phone}}
+        </span>
+      </a>
+    </div>
+    <button class="button button-large button-positive" ng-click="exitlogin()">退出登录</button>
+  </ion-content>
+</ion-view>

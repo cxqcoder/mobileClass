@@ -1,0 +1,38 @@
+<ion-view view-title="Login">
+
+<div class="head">
+<a class="icon ion-arrow-left-c" href="#/tab/login"></a>&nbsp;&nbsp;
+  <a href="#/tab/login">登录</a>&nbsp;&nbsp;
+  <a href="#/tab/sign">注册</a>
+</div>
+  <div class="smask"></div>
+  <ion-content style="margin-top: 29px;">
+    <div class="sign">
+        <h1 class="stitle">注册</h1>
+        <form >
+          <div class="list">
+          <label class="item item-input">
+            <input type="text" placeholder="用户名" ng-model="infor.uname">
+          </label>
+          <label class="item item-input">
+            <input type="text" placeholder="密码" ng-model="infor.password">
+          </label>
+          <label class="item item-input">
+            <input type="text" placeholder="邮箱" ng-model="infor.email">
+          </label>
+          <label class="item item-input">
+            <input type="text" placeholder="手机" ng-model="infor.phone">
+          </label>
+            <label class="item item-input">
+              <input type="text" placeholder="确认密码" ng-model="infor.apassword">
+            </label>
+            <button class="button button-full button-positive" ng-click="register(infor)">
+              登录
+            </button>
+          </div>
+
+        </form>
+    </div>
+  </ion-content>
+</ion-view>
+

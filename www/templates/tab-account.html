@@ -1,0 +1,34 @@
+<ion-view view-title="Account" style="overflow: hidden">
+  <div class="bar">
+   <h1 class="title">我的课程</h1>
+    <span class="bj"><a  ng-click="data.showDelete=!data.showDelete">编辑</a></span>
+  </div>
+  <div class="row" style="height:50px;text-align: center;margin-top: 44px">
+    <div class="col-50" ng-click="showb()" ng-style="bcolor">我的课程<i class="icon ion-ios-arrow-down"></i></div>
+    <div class="col-50"  ng-click="showm()" ng-style="mcolor">收藏课程<i class="icon ion-ios-arrow-down"></i></div>
+  </div>
+  <div class="amask" ng-show="islogin">
+    <h1>请 <span ng-click="tz()">登录</span> 后查看</h1>
+  </div>
+  <ion-content style="margin-top: 94px;">
+    <ion-list ng-show="bdata">
+      <ion-item ng-repeat="temp in buylist" item="item" href="#/tab/homedetail/{{temp.ID}}" class="item item-thumbnail-left item-remove-animate">
+          <img src="{{temp.Cpic}}">
+          <h2>{{temp.Cname}}</h2>
+          <p>{{temp.Cdescribe}}</p>
+          <p>{{temp.Cprice}}</p>
+        <ion-option-button class="button-calm" ng-click="share('{{temp.ID}}')">分享</ion-option-button>
+      </ion-item>
+    </ion-list>
+    <ion-list show-delete="data.showDelete" ng-show="mdata">
+      <ion-item ng-repeat="temp in mylist" item="item" href="#/tab/homedetail/{{temp.ID}}" class="item item-thumbnail-left item-remove-animate">
+        <img src="{{temp.Cpic}}">
+        <h2>{{temp.Cname}}</h2>
+        <p>{{temp.Cdescribe}}</p>
+        <p>{{temp.Cprice}}</p>
+        <ion-delete-button class="ion-minus-circled" ng-click="onItemDelete('{{temp.ID}}')"></ion-delete-button>
+        <ion-option-button class="button-calm" ng-click="share(item)">分享</ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

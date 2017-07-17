@@ -1,0 +1,24 @@
+<ion-view view-title="Login">
+
+  <div class="login">
+    <div class="login_content">
+      <img src="img/login_logo.png"  class="l">
+    </div>
+    <div class="list" style="margin-top: 10rem;">
+        <label class="item item-input">
+          <input type="text" placeholder="用户名" ng-model="logindata.uname">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="密码" ng-model="logindata.pass">
+        </label>
+        <button class="button button-full button-positive" ng-click="loginfn(logindata)">
+         登录
+        </button>
+      </div>
+  </div>
+  <p>
+    <a href="#/tab/sign" style="display: inline-block;float: left">注册</a>
+    <a href=""  style="display: inline-block;float: right">忘记密码</a>
+  </p>
+</ion-view>
+
